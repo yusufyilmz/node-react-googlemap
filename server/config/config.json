@@ -1,0 +1,12 @@
+{
+    "test": {
+        "PORT": 4000,
+        "GEOCODING_URL": "https://maps.googleapis.com/maps/api/geocode",
+        "GEOCODING_SECRET" : "AIzaSyBXcKAqzleAtTAieoVeMjS-YuAajrMN_bs"
+    },
+    "development": {
+        "PORT": 4000,
+        "GEOCODING_URL": "https://maps.googleapis.com/maps/api/geocode",
+        "GEOCODING_SECRET" : "AIzaSyBXcKAqzleAtTAieoVeMjS-YuAajrMN_bs"
+    }
+}
