@@ -1,14 +1,10 @@
 import React, { Fragment } from 'react';
 import styled from 'styled-components';
-import MapContainer from '../containers/MapContainer';
-import LocationListContainer from '../containers/LocationListContainer';
-import AddLocationContainer from '../containers/AddLocationContainer';
-import Button from '../components/Button';
-import AddLocationModal from '../components/AddLocationModal';
+import { AddLocation } from '../components/AddLocation';
+import { Map } from './Map';
+import { LocationList } from './LocationList';
 import ErrorContainer from '../containers/ErrorContainer';
 import LoaderContainer from '../containers/LoaderContainer';
-import { LocationList } from '../components/LocationList';
-import { Map } from './Map';
 
 const ContainerWrapper = styled.div`
     width: 100%;
@@ -23,61 +19,15 @@ const Main = styled.main`
 `;
 
 
-const MapBaseComponent = () => (
-  <MapContainer>
-    {({ locations, removeMarker, addMarker }) => (
-      <Map
-      locations={locations}
-        addMarker={addMarker}
-        removeMarker={removeMarker} />
-    )}
-  </MapContainer>
-)
-
-
-const AddLocationBaseComponent = () => (
-  <AddLocationContainer >
-    {({ addLocation, isOpen, closeModal, openModal }) => (
-      <Fragment>
-        <AddLocationModal addLocation={addLocation}
-          isOpen={isOpen}
-          closeModal={closeModal}>
-          Address
-          </AddLocationModal>
-        <Button onClick={openModal}>Add location</Button>
-      </Fragment>
-    )}
-  </AddLocationContainer>
-)
-
-const LocationListBaseComponent = () => (
-  <LocationListContainer>
-    {({ deleteLocation, locations }) => (
-      <Fragment>
-        <hr />
-        <LocationList
-          locations={locations}
-          deleteLocation={deleteLocation} />
-      </Fragment>
-    )}
-  </LocationListContainer>
-)
-
-const UtilsBaseComponent = () => (
-  <Fragment>
-    <ErrorContainer />
-    <LoaderContainer />
-  </Fragment>
-)
-
 const App = () => {
   return (
     <Main>
-      <MapBaseComponent />
+      <Map />
       <ContainerWrapper>
-        <UtilsBaseComponent />
-        <AddLocationBaseComponent />
-        <LocationListBaseComponent />
+        <ErrorContainer />
+        <LoaderContainer />
+        <AddLocation />
+        <LocationList />
       </ContainerWrapper>
     </Main>
   );

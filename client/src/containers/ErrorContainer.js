@@ -8,7 +8,8 @@ class ErrorContainer extends Component {
     render() {
         return (
             <Fragment>
-                {this.props.error && <Error><strong>{this.props.errorMessage}</strong></Error>}
+                {(this.props.addError || this.props.editError ) && 
+                <Error><strong>{this.props.errorMessage}</strong></Error>}
             </Fragment>
         )
     }
@@ -17,7 +18,8 @@ class ErrorContainer extends Component {
 
 const mapStateToProps = (state) => {
     return {
-        error: state.map.error,
+        addError: state.map.addError,
+        editError: state.map.editError,
         errorMessage: state.map.errorMessage
     }
 }

@@ -4,20 +4,9 @@ import { deleteLocation, addLocationWithAddress } from '../actions';
 
 class LocationListContainer extends Component {
 
-
-    addLocation = (location) => {
-        this.props.addLocationWithAddress(location);
-    }
-
-    deleteLocation = (id) => {
-        this.props.deleteLocation(id);
-    }
-
     getStateAndHelpers() {
         return {
-            deleteLocation: this.deleteLocation,
-            addLocation: this.addLocation,
-            locations: this.props.locations,
+            locations: this.props.locations
         }
     }
 

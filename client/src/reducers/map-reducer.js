@@ -2,11 +2,19 @@ import * as actionTypes from '../constants/actionTypes';
 
 const initialState = {
     locations: [],
-    error: false,
+    editError: false,
+    addError: false,
     errorMessage: '',
-    loading: false
+    loading: false,
+    locationEdited: false,
 }
 
+const resetState = {
+    addError: false,
+    editError: false,
+    loading: false,
+
+}
 export default function (state = initialState, action) {
 
     switch (action.type) {
@@ -21,22 +29,39 @@ export default function (state = initialState, action) {
             return {
                 ...state,
                 locations: [...state.locations, action.payload],
-                error: false,
-                loading: false
+               ...resetState
             }
         case actionTypes.ADD_LOCATION_ERROR:
             return {
                 ...state,
-                error: true,
+                addError: true,
                 errorMessage: action.payload.message,
                 loading: false
             }
-        case actionTypes.ADD_LOCATION_REQUEST:
+        case actionTypes.EDIT_LOCATION_ERROR:
             return {
                 ...state,
-                error: false,
-                loading: true
+                editError: true,
+                errorMessage: action.payload.message,
+                loading: false
             }
+        case actionTypes.LOCATION_REQUEST:
+            return {
+                ...state,
+                loading: true,
+                addError: false,
+                editError: false,
+            }
+        case actionTypes.EDIT_LOCATION_SUCCESS:
+            let { locations } = state
+            locations = locations.map(function (item) { return item.id == action.payload.id ? action.payload : item; });
+            return {
+                ...state,
+                locations,
+                ...resetState,
+                locationEdited: true,
+            }
+
         default:
             return state;
     }

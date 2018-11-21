@@ -4,7 +4,6 @@ import PropTypes from 'prop-types';
 
 const InputWrapper = styled.input`
     width: 100px;
-    margin-left:20px;
     margin-right:20px;
     cursor:pointer;
     border-radius: 5px;

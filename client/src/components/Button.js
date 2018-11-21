@@ -15,18 +15,18 @@ ButtonWrapper.displayName = 'Button';
 
 const Button = ({ id, onClick, color, children }) => {
     return (
-        <ButtonWrapper id={id} style={{ color }} onClick={onClick}>{children}</ButtonWrapper>
+        <ButtonWrapper id={id} style={{ color }} onClick={onClick}><span>{children}</span></ButtonWrapper>
     )
 }
 
-// Button.propTypes = {
-//     onClick: PropTypes.func.isRequired,
-//     color: PropTypes.string,
-// };
+Button.propTypes = {
+    onClick: PropTypes.func.isRequired,
+    color: PropTypes.string,
+};
 
-// Button.defaultProps = {
-//     color: 'white'
-// };
+Button.defaultProps = {
+    color: 'black'
+};
 
 
 export default Button;

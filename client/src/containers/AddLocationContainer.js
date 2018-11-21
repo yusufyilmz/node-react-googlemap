@@ -1,9 +1,10 @@
 
-import React, { Fragment, Component } from 'react';
+import React, {  Component } from 'react';
 import { connect } from 'react-redux';
 import { addLocationWithAddress} from '../actions'
 
 class AddLocationContainer extends Component {
+
 
     state = {
         isOpen: false,
@@ -13,26 +14,32 @@ class AddLocationContainer extends Component {
 
     openModal = () => {
         this.setState((currentState) => {
-            return { error:false, isOpen: !currentState.isOpen }
+            return { error:false, isOpen: !currentState.isOpen,  location: '' }
         })
     }
 
-    addLocation = (location) => {
-        this.props.addLocationWithAddress(location)
-        this.setState({ isOpen: false, location });
+    addLocation = () => {
+        this.props.addLocationWithAddress(this.state.location)
+        this.setState({ isOpen: false });
     }
 
     closeModal = () => {
-        this.setState({ isOpen: false })
+        this.setState({ isOpen: false, location: '' })
     }
 
+    onChange = (e) => {
+        this.setState({ location: e.target.value })
+    }
 
     getStateAndHelpers() {
         return {
             addLocation: this.addLocation,
             isOpen: this.state.isOpen,
             closeModal: this.closeModal,
-            openModal: this.openModal
+            openModal: this.openModal,
+            onChange: this.onChange,
+            location: this.state.location,
+            title: "Address"
         }
     }
 

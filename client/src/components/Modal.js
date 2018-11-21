@@ -1,5 +1,6 @@
 import React, { Component, Fragment } from 'react';
 import styled from 'styled-components';
+import PropTypes from 'prop-types';
 
 const ModalWrapper = styled.div`
     position: fixed; 
@@ -46,5 +47,12 @@ class Modal extends Component {
         </Fragment>
     }
 }
+
+
+Modal.propTypes = {
+    closeModal: PropTypes.func.isRequired,
+    isOpen: PropTypes.bool.isRequired,
+};
+
 
 export default Modal;

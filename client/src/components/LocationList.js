@@ -1,8 +1,9 @@
 import React, { Fragment } from 'react';
-import Location from './LocationItem'
+import LocationListContainer from '../containers/LocationListContainer';
+import LocationItemContainer from '../containers/LocationItemContainer';
+import LocationItem from './LocationItem';
 import uniqueid from 'lodash.uniqueid';
 import styled from 'styled-components';
-import Button from './Button';
 
 const RowWrapper = styled.div`
     display: flex;
@@ -11,17 +12,29 @@ const RowWrapper = styled.div`
     margin-left: -15px;
 `;
 
-export const LocationList = ({ locations, deleteLocation }) =>
-    <RowWrapper>
-        {locations.map(location => {
+export const LocationList = () => (
+  <LocationListContainer>
+    {({ locations }) => (
+      <Fragment>
+        <hr />
+        <RowWrapper>
+          {locations.map(location => {
             return (
-                <Location key={uniqueid()}
-                    {...location} >
-                    <Fragment>
-                        <Button id="123" onClick={() => deleteLocation(location.id)} type="button"> Delete</Button>
-                    </Fragment>
-                </Location>
+              <LocationItemContainer key={uniqueid()} {...location}>
+                {({ deleteLocation, edit, changeMode, onChangeAddress, address, editLocation }) => (
+                  <LocationItem {...location}
+                    deleteLocation={deleteLocation}
+                    onChangeAddress={onChangeAddress}
+                    editLocation={editLocation}
+                    address={address}
+                    changeMode={changeMode}
+                    edit={edit} />
+                )}
+              </LocationItemContainer>
             )
-        })}
-    </RowWrapper>
-
+          })}
+        </RowWrapper>
+      </Fragment>
+    )}
+  </LocationListContainer>
+)

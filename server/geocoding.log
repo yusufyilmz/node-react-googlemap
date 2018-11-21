@@ -1,1 +1,1 @@
-Geocoding Server: Sun Nov 18 2018 14:20:31 GMT+0300 (+03): GET /api/address?lat=52.60431720412755&lng=13.322602539062473 
+Geocoding Server: Wed Nov 21 2018 14:45:39 GMT+0300 (+03): GET /api/geocode?address=berlin 
