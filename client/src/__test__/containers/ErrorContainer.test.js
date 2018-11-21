@@ -8,7 +8,7 @@ import { wrap } from 'module';
 
 const initialState = {
     map: {
-        error: true,
+        addError: true,
         errorMessage: "error"
     }
 };
@@ -16,7 +16,7 @@ const initialState = {
 const mockStore = configureStore();
 
 
-describe('Input component', () => {
+describe('ErrorContainer component', () => {
 
     let store, wrapper;
 

@@ -12,19 +12,7 @@ import { shallow } from 'enzyme'
 //     expect(tree).toMatchSnapshot();
 // });
 
-
 describe('Button component', () => {
-
-
-
-
-    // test('renders children correctly', () => {
-    //     const text = 'Click me';
-    //     const wrapper = shallow(
-    //         <Button >{text}</Button>
-    //     );
-    //     expect(wrapper.text).toEqual(text);
-    // });
 
     test('renders children correctly', () => {
 
@@ -33,7 +21,6 @@ describe('Button component', () => {
         const wrapper = shallow(
             <Button onClick={onClick}><p>{text}</p></Button>
         );
-        // let props = wrapper.find('p').props()
         expect(wrapper.find('p').text()).toBe(text);
     });
 

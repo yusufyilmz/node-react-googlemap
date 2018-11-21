@@ -16,36 +16,21 @@ const H3 = styled.h3`
 H3.displayName = 'header'
 
 
-// const LocationItem = ({ address, lat, lng, id, children, deleteLocation }) => {
-//     return (
-//         <Div>
-//             <H3>{address}</H3>
-//             <p> Latitude : <label>{lat}</label> </p>
-//             <p >Longitude : <label>{lng}</label></p>
-//             {/* {children} */}
-
-//             <Button id="123" onClick={() => deleteLocation(id)} type="button"> Edit</Button>
-//             <Button id="123" onClick={() => deleteLocation(id)} type="button"> Delete</Button>
-
-//         </Div>
-//     );
-// };
-
-const LocationItem = ({ address, lat, lng, id, onChangeAddress, deleteLocation, editLocation, changeMode, edit }) => {
+const LocationItem = ({ onChangeAddress, deleteLocation, editLocation, changeMode, edit, ...props}) => {
   
         return (
             <Div>
                 {edit ?
                     <Fragment>
-                        <Input type="text" value={address} onChange={onChangeAddress}/>
+                        <Input type="text" value={props.address} onChange={onChangeAddress}/>
                         <Button onClick={editLocation} type="button"> Submit</Button>
                     </Fragment>
                     :
-                    <H3>{address}</H3>
+                    <H3>{props.address}</H3>
                 }
-                <p> Latitude : <label>{lat}</label> </p>
-                <p >Longitude : <label>{lng}</label></p>
-                <Button onClick={() => deleteLocation(id)} type="button"> Delete</Button>
+                <p> Latitude : <label>{props.lat}</label> </p>
+                <p >Longitude : <label>{props.lng}</label></p>
+                <Button onClick={() => deleteLocation(props.id)} type="button"> Delete</Button>
                 <Button onClick={changeMode} type="button"> {!edit ? "Edit" : "Cancel"}</Button>
             </Div>
         )

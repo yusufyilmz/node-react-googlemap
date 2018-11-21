@@ -22,7 +22,6 @@ export default function (state = initialState, action) {
             return {
                 ...state,
                 locations: state.locations.filter(item => item.id !== action.payload),
-                error: false,
                 loading: false
             }
         case actionTypes.ADD_LOCATION_SUCCESS:

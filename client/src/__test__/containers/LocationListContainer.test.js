@@ -24,7 +24,7 @@ const initialState = {
 const mockStore = configureStore();
 
 
-describe('Input component', () => {
+describe('LocationList container', () => {
 
     let store, wrapper, actions;
 

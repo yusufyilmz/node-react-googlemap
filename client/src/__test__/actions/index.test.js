@@ -52,7 +52,7 @@ describe('MAP_ACTIONS', () => {
         });
 
         const expectedActions = [
-            { type: actionTypes.ADD_LOCATION_REQUEST },
+            { type: actionTypes.LOCATION_REQUEST },
             { type: actionTypes.ADD_LOCATION_SUCCESS, payload: location }
         ];
 
@@ -80,7 +80,7 @@ describe('MAP_ACTIONS', () => {
             });
         });
 
-        const expectedActions = [actionTypes.ADD_LOCATION_REQUEST, actionTypes.ADD_LOCATION_ERROR];
+        const expectedActions = [actionTypes.LOCATION_REQUEST, actionTypes.ADD_LOCATION_ERROR];
 
         const store = mockStore({ locations: [] })
         return store.dispatch(actions.addLocation({ lat: location.lat, lng: location.lng })).then(() => {
@@ -100,7 +100,7 @@ describe('MAP_ACTIONS', () => {
         });
 
         const expectedActions = [
-            { type: actionTypes.ADD_LOCATION_REQUEST },
+            { type: actionTypes.LOCATION_REQUEST },
             { type: actionTypes.ADD_LOCATION_SUCCESS, payload: location }
         ];
 
@@ -121,7 +121,7 @@ describe('MAP_ACTIONS', () => {
             });
         });
 
-        const expectedActions = [actionTypes.ADD_LOCATION_REQUEST, actionTypes.ADD_LOCATION_ERROR];
+        const expectedActions = [actionTypes.LOCATION_REQUEST, actionTypes.ADD_LOCATION_ERROR];
 
         const store = mockStore({ locations: [] })
         return store.dispatch(actions.addLocationWithAddress(location.address)).then(() => {

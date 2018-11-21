@@ -8,7 +8,7 @@ describe('MAP_REDUCER', () => {
     let location;
 
     beforeEach(() => {
-         initialState = { error: false, locations: [], errorMessage: '', loading: false };
+         initialState = { addError: false, editError: false, locations: [], errorMessage: '', loading: false, locationEdited: false };
          location = { id: 1, lat: 1, lng: 2, address: 'test' };
 
     });
@@ -52,9 +52,9 @@ describe('MAP_REDUCER', () => {
         test('returns the correct state', () => {
 
             var errorMessage= 'error occured';
-            var locationWithError = {...location, message : errorMessage, error: true };
+            var locationWithError = {...location, message : errorMessage, addError: true };
             const action = { type: actionTypes.ADD_LOCATION_ERROR, payload: locationWithError };
-            expect(mapReducer(undefined, action)).toEqual({...initialState,  errorMessage, error: true});
+            expect(mapReducer(undefined, action)).toEqual({...initialState,  errorMessage, addError: true});
         });
     });
 

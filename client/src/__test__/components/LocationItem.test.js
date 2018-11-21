@@ -14,7 +14,10 @@ describe('locationItem component', () => {
         const lng = 1;
 
         const wrapper = shallow(
-            <LocationItem address={address} lat={lat} lng={lng} ></LocationItem>
+            <LocationItem 
+            onChangeAddress={jest.fn()} 
+            deleteLocation={jest.fn()}  editLocation={jest.fn()} changeMode={jest.fn()} 
+            address={address} lat={lat} lng={lng} onCli ></LocationItem>
         );
         expect(wrapper.find('header').text()).toBe(address);
         expect(wrapper.find('p').length).toBe(2);
