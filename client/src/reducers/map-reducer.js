@@ -54,7 +54,8 @@ export default function (state = initialState, action) {
             }
         case actionTypes.EDIT_LOCATION_SUCCESS:
             let { locations } = state
-            locations = locations.map(function (item) { return item.id == action.payload.id ? action.payload : item; });
+            locations = locations.map(function (item) { return item.id === action.payload.id ? action.payload : item; });
+          
             return {
                 ...state,
                 locations,
